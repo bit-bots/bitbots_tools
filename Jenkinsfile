@@ -9,7 +9,6 @@ pipeline {
 
     stages {
         stage("Build docker container") {
-            when { branch "master" }
             steps {
                 sh "docker build -t registry.bit-bots.de/bitbots_builder --no-cache docker_builder"
                     sh "docker push registry.bit-bots.de/bitbots_builder"

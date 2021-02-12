@@ -1,5 +1,18 @@
-@Library("bitbots_jenkins_library")_
+@Library('bitbots_jenkins_library') import de.bitbots.jenkins.*;
 
+def pipeline = new BitbotsPipeline(this, env, currentBuild, scm)
+pipeline.configurePipelineForPackage(new PackageDefinition("bitbots_docs").forPipeline().withDocumentation().withPublishing())
+pipeline.execute()
+
+//properties()
+
+/*
+bitbotsPipeline([
+    new PackageDefinition("bitbots_docs", true)
+] as PackageDefinition[])
+*/
+
+/*
 pipeline {
     agent any
 
@@ -89,3 +102,4 @@ pipeline {
         }
     }
 }
+*/

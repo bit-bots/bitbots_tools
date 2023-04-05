@@ -1,0 +1,16 @@
+name: Build documentation
+on:
+  push:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: ubuntu:jammy
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Build documentation
+        uses: bit-bots/bitbots_docs_action@main
+        with:
+          folders: bitbots_docs
